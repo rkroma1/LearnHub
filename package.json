@@ -1,0 +1,27 @@
+{
+  "name": "learnhub",
+  "version": "1.0.0",
+  "description": "Learning Management System",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rkroma1/LearnHub.git"
+  },
+  "author": "Brandon Cole, Lysian Mve, Mike Lee, Adelia Manuel, Rami Kroma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rkroma1/LearnHub/issues"
+  },
+  "homepage": "https://github.com/rkroma1/LearnHub#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "faker": "^4.1.0",
+    "mysql": "^2.17.1",
+    "req-flash": "0.0.3"
+  }
+}
