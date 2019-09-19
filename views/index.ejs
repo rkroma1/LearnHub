@@ -4,8 +4,10 @@
             <table class="table table-hovered">
                 <thead class="thead-dark">
                     <tr>
+			<th scope="col"></th>
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
+			<th scope="col">Modify</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -15,8 +17,10 @@
                             <td><%= user.name %></td>
                             <td><%= user.email %></td>
                             <td>
-                                <a href="/edit/<%= user.id %>" target="_blank" rel="noopener" class="btn btn-sm btn-success">Edit</a>
-                                <a href="/delete/<%= user.id %>" class="btn btn-sm btn-danger">Delete</a>
+                                <a href="/<%= user.userID %>/user/edit" class="btn btn-sm btn-success">Edit   </a>
+				<form action="/<%= user.userID %>/user/delete?_method=DELETE" method="post">
+    					<button type="submit" name="delete" class="btn btn-sm btn-danger">Delete</button>
+				</form>
                             </td>
                         </tr>
                     <% }) %>
