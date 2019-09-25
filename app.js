@@ -20,36 +20,6 @@ const db =  mysql.createConnection({
                 password : 'iR34llyD0NotC4r3',
                 database : 'learnHub'
         });
-/*
-function connect() {
-     db =  mysql.createConnection({
-        	host : 'localhost',
-        	user : 'userTemp',
-        	password : 'iR34llyD0NotC4r3',
-        	database : 'learnHub'
-	});
-
-
-db.connect((err) => {
-    if (err) {
-        console.log(err);
-	setTimeout(connect, 2000);
-	
-    }
-    console.log('Connected to database');
-});
-
-//handle timeouts
-db.on('error', function(err){
-	console.log('db error', err);
-	if(err.code === 'PROTOCOL_CONNECTION_LOST')
-		connect();
-	else
-		throw err;
-});
-
-}
-*/
 
 global.db = db;
 
@@ -58,12 +28,31 @@ app.set('views', __dirname + '/views'); // set express to look in this folder to
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); // parse form data client
 
-app.get("/", viewUsers);
-app.get("/:ID/user/edit", viewUser);
-app.delete("/:ID/user/delete", deleteUser);
-app.post("/user/add", addUser);
+
+//User routes
 app.get("/user/add",  function(req,res){res.render('addUser.ejs')});
-app.put("/user/edit/:ID", editUser);
+
+//Course routes
+app.get("/course/add",  function(req,res){res.render('addCourse.ejs')});
+
+//Grade routes
+app.get("/grade/add",  function(req,res){res.render('addGrade.ejs')});
+
+//Enroll routes
+app.get("/enroll/add",  function(req,res){res.render('enroll.ejs')});
+
+//User+Course routes
+app.get("/", function(req,res){res.redirect("/user")});
+app.get("/:type/edit/:ID", viewUser);
+app.get("/:type", viewUsers);
+app.delete("/:type/delete/:ID", deleteUser);
+app.post("/:type/add", addUser);
+app.put("/:type/edit/:ID", editUser);
+
+//404 route
+app.get('*', function(req,res){
+res.redirect("/");
+});
 
 app.listen(port,function(){
 console.log("Listening on port...");

@@ -17,8 +17,8 @@
                             <td><%= user.name %></td>
                             <td><%= user.email %></td>
                             <td>
-                                <a href="/<%= user.userID %>/user/edit" class="btn btn-sm btn-success">Edit   </a>
-				<form action="/<%= user.userID %>/user/delete?_method=DELETE" method="post">
+                                <a href="/user/edit/<%= user.userID %>" class="btn btn-sm btn-success">Edit   </a>
+				<form action="/user/delete/<%= user.userID %>?_method=DELETE" method="post">
     					<button type="submit" name="delete" class="btn btn-sm btn-danger">Delete</button>
 				</form>
                             </td>

@@ -1,0 +1,36 @@
+<% include header.ejs %>
+    <div class="table-wrapper">
+        <% if (users.length > 0) {%>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+			<th scope="col"></th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Year</th>
+                        <th scope="col">Semester</th>
+			<th scope="col">Modify</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach((user, index) => { %>
+                        <tr>
+                            <th scope="row"><%= user.courseName %></th>
+                            <td><%= user.year %></td>
+                            <td><%= user.semester %></td>
+                            <td>
+                                <a href="/course/edit/<%= user.courseID %>" class="btn btn-sm btn-success">Edit   </a>
+				<form action="/course/delete/<%= user.courseID %>?_method=DELETE" method="post">
+    					<button type="submit" name="delete" class="btn btn-sm btn-danger">Delete</button>
+				</form>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p class="text-center">No users found. Go <a href="/add" >here</a> to add users.</p>
+        <% } %>
+    </div>
+</div>
+</body>
+</html>

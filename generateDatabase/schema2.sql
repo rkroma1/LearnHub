@@ -1,7 +1,7 @@
 CREATE TABLE `user` (
   `userID` int UNIQUE NOT NULL AUTO_INCREMENT,
   `name` varchar(64),
-  `email` varchar(64) NOT NULL,
+  `email` varchar(64) UNIQUE NOT NULL,
   `password` varchar(64) NOT NULL,
   `usertype` varchar(16) DEFAULT 'user',
   PRIMARY KEY (`userID`)
@@ -12,7 +12,9 @@ CREATE TABLE `course` (
   `courseName` varchar(64) NOT NULL,
   `year` int,
   `semester` varchar(16),
-  PRIMARY KEY (`courseID`)
+  `instructorID` int,
+  PRIMARY KEY (`courseID`),
+  FOREIGN KEY(`instructorID`) references user(`userID`)
 );
 
 
@@ -28,8 +30,8 @@ CREATE TABLE `grade` (
   `assignmentName` varchar(64) NOT NULL,
   `grade` int,
   `gradeID` int AUTO_INCREMENT,
-  `courseID` int,
+  `enrolledID` int,
   PRIMARY KEY (`gradeID`),
-  FOREIGN KEY (`courseID`) references enrolled(`courseID`)
+  FOREIGN KEY (`enrolledID`) references enrolled(`enrollmentID`)
 );
 
