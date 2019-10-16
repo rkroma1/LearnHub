@@ -9,6 +9,10 @@ module.exports = {
         {
          query = "delete from course where courseID="+req.params.ID;
         }
+	if(req.params.type === "enroll")
+        {
+         query = "delete from enrolled where enrollmentID="+req.params.ID;
+	}
 
         
 	db.query(query, (err, result) => {

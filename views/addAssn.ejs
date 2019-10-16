@@ -1,0 +1,30 @@
+<% include header.ejs %>
+
+<div class="container">
+<div class="row">
+<h1 style="text-align:center;">New Assignment</h1>
+<div style="width:30%; margin: auto;">
+<form action="/assn/add" method="POST">
+       
+<div class="form-group">
+        <select class="form-control" name="course">
+                 <% if( courses.length> 0) { %>
+                                        <% courses.forEach((course,index)=>{ %>
+                        <option value=<%= course.courseID %> > <%=course.courseName %>   </option>
+                        <% }) %>
+                <% } else { %>
+                        <option value="default">Course</option>
+                <% } %>
+        </select>
+        </div>
+
+        <div class="form-group">
+        <input class="form-control" type="text" name="name" placeholder="Assignment Name">
+        </div>
+        <button class="btn btn-block btn-lg btn-primary">Submit.</button>
+</form>
+        <a href="/">Go Back</a>
+</div>
+</div>
+</div>
+

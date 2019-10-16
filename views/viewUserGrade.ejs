@@ -1,0 +1,27 @@
+<% include header.ejs %>
+    <div class="table-wrapper">
+        <% if (grades.length > 0) {%>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Grade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% grades.forEach((grade, index) => { %>
+                        <tr>
+                            <th scope="row"></th>
+                            <td><%= grade.name %></td>
+                            <td><%= grade.grade %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p class="text-center">No users found. Go <a href="/add" >here</a> to add users.</p>
+        <% } %>
+    </div>
+</div>
+</body>
+</html>

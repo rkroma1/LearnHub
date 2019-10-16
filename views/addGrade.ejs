@@ -2,17 +2,25 @@
 
 <div class="container">
 <div class="row">
-<h1 style="text-align:center;">New Course</h1>
+<h1 style="text-align:center;">New Grade</h1>
 <div style="width:30%; margin: auto;">
-<form action="/course/add" method="POST">
-        <div class="form-group">
-        <input class="form-control" type="text" name="name" placeholder="Name">
+<form action="/grade/add" method="POST">
+       
+<div class="form-group">
+        <select class="form-control" name="assn">
+                 <% if( assns.length> 0) { %>
+                                        <% assns.forEach((assn,index)=>{ %>
+                        <option value=<%= assn.assignmentID %> > <%=assn.assignmentName %>   </option>
+                        <% }) %>
+                <% } else { %>
+                        <option value="default">Assignment</option>
+                <% } %>
+        </select>
         </div>
+
         <div class="form-group">
-        <input class="form-control" type="text" name="year" placeholder="Year">
-        </div>
-        <div class="form-group">
-        <input class="form-control" type="text" name="semester" placeholder="Semester">
+	<input type="hidden" name="ID" value=<%=ID%>>
+        <input class="form-control" type="text" name="grade" placeholder="Grade">
         </div>
         <button class="btn btn-block btn-lg btn-primary">Submit.</button>
 </form>

@@ -14,6 +14,17 @@
         <div class="form-group">
         <input class="form-control" type="text" name="semester" placeholder="Semester">
         </div>
+        <div class="form-group">
+	<select class="form-control" name="prof">
+  		 <% if( users.length> 0) { %>
+		                        <% users.forEach((user,index)=>{ %>
+                        <option value=<%= user.userID %> > <%=user.name %>   </option>
+                        <% }) %>
+		<% } else { %>
+			<option value="default">Professor</option>
+        	<% } %>
+	</select>
+        </div>
         <button class="btn btn-block btn-lg btn-primary">Submit.</button>
 </form>
         <a href="/">Go Back</a>
