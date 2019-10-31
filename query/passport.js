@@ -28,6 +28,7 @@ passport.use('local', new LocalStrategy({
                          if(!result.length)
 				{
 				console.log("Result length :" + result.length);
+				req.flash("error", "test");
                 		return done(null, false);
 				}
 

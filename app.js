@@ -7,6 +7,7 @@ const 	express = require('express'),
 	passport = require('passport'),
 	LocalStrategy = require('passport-local').Strategy,
 	session     = require('express-session'),
+	flash = require('connect-flash'),
 	port = 80;
 
 app.use(methodOverride('_method'));
@@ -34,7 +35,7 @@ app.use(session({
         saveUninitialized: false
 }));
 
-
+app.use(flash());
 
 //Initialize passport
 app.use(passport.initialize());
@@ -84,7 +85,9 @@ app.get("/assn/add",  addAssn);
 app.get("/enroll/add",  addCourse);
 
 //Login route
-app.get("/login", function(req,res){res.render('login.ejs')});
+app.get("/login", function(req,res){
+	res.render('login.ejs', {message: req.flash('info')});
+});
 app.post("/login",passport.authenticate('local', {successRedirect: "/", failureRedirect: "/login"}) ,function(req,res){
 	currentUser:req.user;
 	res.redirect("/");
@@ -93,6 +96,7 @@ app.post("/login",passport.authenticate('local', {successRedirect: "/", failureR
 //Logout
 app.get("/logout", function(req,res){
         req.logout();
+	req.flash('info', 'flash');
 	res.redirect("/");
 });
 
