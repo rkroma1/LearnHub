@@ -110,8 +110,12 @@ app.delete("/:type/delete/:ID", deleteUser);
 app.post("/:type/add", addUser);
 app.post("/enroll",viewUsers);
 app.put("/:type/edit/:ID", editUser);
+ if(!currentUser) {
 app.get("/", function(req,res){res.redirect("/login")});
-
+}
+else{
+	app.get("/", function(req,res){res.redirect("/course")});
+}
 //404 route
 app.get('*', function(req,res){
 res.redirect("/");
