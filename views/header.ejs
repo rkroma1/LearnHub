@@ -17,8 +17,8 @@
                                 	<li>	<a href="/course">Course</a> </li>
                                 	<li>	<a  href="/enroll">Enrolled</a> </li>
 																	<li>	<a  href="/user">Users</a> </li>
-																	<% if(!currentUser) { %>
-																	<li>	<a  href="/grade/view/">Users</a> </li>
+																	<% if(currentUser) { %>
+																	<li>	<a  href="/grade/view/"><%= currentUser.name %> Grades</a> </li>
 																	<% }  %>
 					</ul>
 				</div>
