@@ -60,6 +60,7 @@
                             <td>
 				 <a href="/grade/add/<%= user.enrollmentID %>" class="btn btn-sm btn-success">Add a Grade</a>
 				<a href="/grade/view/<%= user.enrollmentID %>" class="btn btn-sm btn-success">View Student Grades</a>
+          <% console.log(user);%>
                                 <form action="/enroll/delete/<%= user.enrollmentID %>?_method=DELETE" method="post">
                                         <button type="submit" name="delete" class="btn btn-sm btn-danger">Delete</button>
                                 </form>
@@ -73,5 +74,3 @@
         <% } %>
     </div>
 </div>
-
-

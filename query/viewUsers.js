@@ -3,7 +3,7 @@ module.exports = {
         let query;
 	if(req.params.type === "user")
         {
-		query = "select * from user where usertype='user'"; 
+		query = "select * from user where usertype='user'";
         	db.query(query, (err, result) => {
             		if (err) {
                 		console.log(err);
@@ -50,12 +50,10 @@ module.exports = {
 			res.render('viewEnrolled.ejs', {
                 	title: 'Welcome to LearnHub | View Enrolled'
                 	,users: result[1],
-			courses: result[0]
+			               courses: result[0]
            	 	});
         	});
         }
 
     },
 };
-
-

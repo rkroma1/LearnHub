@@ -11,10 +11,10 @@ module.exports = {
         }
 	if(req.params.type === "enroll")
         {
-         query = "delete from enrolled where enrollmentID="+req.params.ID;
+         query = "delete from grade where enrolledID="+req.params.ID +";delete from enrolled where enrollmentID="+req.params.ID;
 	}
 
-        
+
 	db.query(query, (err, result) => {
             if (err) {
                 console.log(err);
@@ -23,4 +23,3 @@ module.exports = {
         });
     },
 };
-
