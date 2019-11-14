@@ -24,7 +24,7 @@ let db =  mysql.createConnection({
 setInterval(() => {
     db.query('SELECT 1', (err, rows) => {
         if (err) throw err;
-    });   
+    });
 }, 60000);
 
 global.db = db;
@@ -93,6 +93,8 @@ app.post("/login",passport.authenticate('local', {successRedirect: "/", failureR
 	res.redirect("/");
 });
 
+//test
+
 //Logout
 app.get("/logout", function(req,res){
         req.logout();
@@ -118,4 +120,3 @@ res.redirect("/");
 app.listen(port,function(){
 console.log("Listening on port...");
 });
-
