@@ -13,14 +13,14 @@ module.exports = {
   if(req.params.type === "grade")
         {
       		console.log("update grade set courseName='" + req.body);
-                  //query = "update course set courseName='" + req.body.courseName + "', year=" + req.body.year + ", semester='" + req.body.semester + "' where courseID="+req.params.ID;
+                  query = "select 1";
         }
         db.query(query, (err, result) => {
             if (err) {
 		res.redirect("/");
                 console.log(err);
             }
-            res.redirect('/');
+            res.redirect('back');
 	});
 	},
 };
