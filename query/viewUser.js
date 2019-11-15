@@ -11,7 +11,7 @@ module.exports = {
         }
   else if(req.params.type === "grade")
         {
-                      query = "select grade from `grade` where gradeID="+req.params.ID;
+                      query ="select grade from grade where gradeID=" + req.params.ID;
         }
 
         db.query(query, (err, result) => {
