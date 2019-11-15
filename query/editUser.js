@@ -10,11 +10,10 @@ module.exports = {
 		console.log("update course set courseName='" + req.body.courseName + "', year=" + req.body.year + ", semester='" + req.body.semester + "' where courseID="+req.params.ID);
             query = "update course set courseName='" + req.body.courseName + "', year=" + req.body.year + ", semester='" + req.body.semester + "' where courseID="+req.params.ID;
         }
-        console.log(req.params.type);
   if(req.params.type === "grade")
         {
-      		console.log("update grade set courseName='" + req.body);
-                  query = "select 1";
+      		console.log("update grade set courseName='" + req.body.grade);
+                  query = "update grade set grade=" + req.body.grade;
         }
         db.query(query, (err, result) => {
             if (err) {

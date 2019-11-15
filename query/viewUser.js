@@ -9,6 +9,10 @@ module.exports = {
         {
                 query = "select courseName,semester,year from `course` where courseID="+req.params.ID;
         }
+  else if(req.params.type === "grade")
+        {
+                      query = "select grade from `course` where gradeID="+req.params.ID;
+        }
 
         db.query(query, (err, result) => {
             if (err) {
@@ -29,7 +33,13 @@ module.exports = {
 			ID: req.params.ID
 		});
 	}
+  if(req.params.type === "grade")
+        {
+		res.render('editGrade.ejs',{
+			users: result,
+			ID: req.params.ID
+		});
+	}
         });
     },
 };
-
