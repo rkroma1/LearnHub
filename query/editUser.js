@@ -13,7 +13,7 @@ module.exports = {
   if(req.params.type === "grade")
         {
       		console.log("update grade set courseName='" + req.body.grade);
-                  query = "update grade set grade=" + req.body.grade;
+                  query = "update grade set grade=" + req.body.grade + " where gradeID="+req.params.ID;
         }
         db.query(query, (err, result) => {
             if (err) {
