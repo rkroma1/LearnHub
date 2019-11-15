@@ -8,7 +8,7 @@ module.exports = {
         res.render('viewUserGrade.ejs', {
                 title: 'Welcome to LearnHub |  Grades',
                 grades: result[0],
-                avg: result[0]
+                avg: result[1]
             });
         });
     },
