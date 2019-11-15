@@ -6,7 +6,6 @@
                     <tr>
                         <th scope="col">Name</th>
                         <th scope="col">Grade</th>
-                        <th scope="col">Avg</th>
                         <th scope="col">Modification</th>
                     </tr>
                 </thead>
@@ -15,14 +14,14 @@
                         <tr>
                             <td><%= grade.name %></td>
                             <td><%= grade.grade %></td>
-                            <td><%= grade.avg %></td>
-                            <a href="/grade/edit/<%= grade.gradeID %>" class="btn btn-sm btn-success">Edit   </a>
+                            <td><a href="/grade/edit/<%= grade.gradeID %>" class="btn btn-sm btn-success">Edit   </a>
         <form action="/grade/delete/<%= grade.gradeID %>?_method=DELETE" method="post">
               <button type="submit" name="delete" class="btn btn-sm btn-danger">Delete</button>
         </form>
                             </td>
                         </tr>
                     <% }) %>
+                    <tr><td><%= avg.avg %></td></tr>
                 </tbody>
             </table>
         <% } else { %>
