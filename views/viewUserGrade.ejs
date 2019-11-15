@@ -4,6 +4,7 @@
             <table class="table table-hovered">
                 <thead class="thead-dark">
                     <tr>
+                        <th scope="col"></th>
                         <th scope="col">Name</th>
                         <th scope="col">Grade</th>
                         <th scope="col">Modification</th>
@@ -12,6 +13,7 @@
                 <tbody>
                     <% grades.forEach((grade, index) => { %>
                         <tr>
+                            <td>Student Name : </td>
                             <td><%= grade.name %></td>
                             <td><%= grade.grade %></td>
                             <td><a href="/grade/edit/<%= grade.gradeID %>" class="btn btn-sm btn-success">Edit   </a>
@@ -21,8 +23,12 @@
                             </td>
                         </tr>
                     <% }) %>
-                    <% console.log(avg); %>
-                    <tr><td><%= avg.avg %></td></tr>
+                    <tr>
+			<td>Average : </td>
+			<td><%= avg[0].avg %></td>
+			<td></td>
+			<td></td>
+			</tr>
                 </tbody>
             </table>
         <% } else { %>
