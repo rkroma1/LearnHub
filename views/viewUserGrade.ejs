@@ -6,14 +6,20 @@
                     <tr>
                         <th scope="col">Name</th>
                         <th scope="col">Grade</th>
+                        <th scope="col">Modification</th>
                     </tr>
                 </thead>
                 <tbody>
                     <% grades.forEach((grade, index) => { %>
                         <tr>
-                            <th scope="row"></th>
                             <td><%= grade.name %></td>
                             <td><%= grade.grade %></td>
+                            <td>
+                            <a href="/grade/edit/<%= grade.gradeID %>" class="btn btn-sm btn-success">Edit   </a>
+        <form action="/grade/delete/<%= grade.gradeID %>?_method=DELETE" method="post">
+              <button type="submit" name="delete" class="btn btn-sm btn-danger">Delete</button>
+        </form>
+                            </td>
                         </tr>
                     <% }) %>
                 </tbody>
