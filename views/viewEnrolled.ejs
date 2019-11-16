@@ -37,7 +37,7 @@
 </div>
 
 <h1>
-	Course Name - Instructor
+	Enrolled Students
 </h1>
 
   <div class="table-wrapper">
@@ -58,19 +58,21 @@
                             <td><%= user.name %></td>
                             <td><%= user.email %></td>
                             <td>
+<%if(currentUser.usertype !== "user") { %>
 				 <a href="/grade/add/<%= user.enrollmentID %>" class="btn btn-sm btn-success">Add a Grade</a>
 				<a href="/grade/view/<%= user.enrollmentID %>" class="btn btn-sm btn-success">View Student Grades</a>
           
                                 <form action="/enroll/delete/<%= user.enrollmentID %>?_method=DELETE" method="post">
                                         <button type="submit" name="delete" class="btn btn-sm btn-danger">Delete</button>
                                 </form>
+<%}%>
                             </td>
                         </tr>
                     <% }) %>
                 </tbody>
             </table>
         <% } else { %>
-            <p class="text-center">No students enrolled. The course may not be offered at the times you selected. Go <a href="/add" >here</a> to add users.</p>
+            <p class="text-center">No students enrolled or you have not selected a course.</p>
         <% } %>
     </div>
 </div>

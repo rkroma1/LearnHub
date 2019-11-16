@@ -13,11 +13,16 @@ module.exports = {
         {
                       query ="select grade from grade where gradeID=" + req.params.ID;
         }
+else if(req.params.type === "assn")
+        {
+                      query ="select assignmentName from assignment where assignmentID=" + req.params.ID;
+        }
+
 
         db.query(query, (err, result) => {
             if (err) {
 		res.redirect("/");
-		console.log(err);
+return		console.log(err);
             }
 	 if(req.params.type === "user")
         {
@@ -36,6 +41,13 @@ module.exports = {
   if(req.params.type === "grade")
         {
 		res.render('editGrade.ejs',{
+			users: result,
+			ID: req.params.ID
+		});
+	}
+  if(req.params.type === "assn")
+        {
+		res.render('editAssns.ejs',{
 			users: result,
 			ID: req.params.ID
 		});

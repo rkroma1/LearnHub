@@ -24,17 +24,9 @@ CREATE TABLE `enrolled` (
 	`userID` int,
 	`courseID` int,
 	FOREIGN KEY (`userID`) references user(`userID`),
-	FOREIGN KEY(`courseID`) references course(`courseID`)
+	FOREIGN KEY(`courseID`) references course(`courseID`),
+	CONSTRAINT user_info UNIQUE(userID,courseID)
 );
-
-CREATE TABLE `grade` (
-  `grade` int,
-  `gradeID` int AUTO_INCREMENT,
-  `enrolledID` int,
-  PRIMARY KEY (`gradeID`),
-  FOREIGN KEY (`enrolledID`) references enrolled(`enrollmentID`)
-);
-
 
 CREATE TABLE `assignment` (
   `assignmentName` varchar(64) NOT NULL,
@@ -43,4 +35,16 @@ CREATE TABLE `assignment` (
   PRIMARY KEY (`assignmentID`),
   FOREIGN KEY (`courseID`) references course(`courseID`)
 );
+
+
+CREATE TABLE `grade` (
+  `grade` int,
+  `gradeID` int AUTO_INCREMENT,
+  `enrolledID` int,
+  `assignmentID` int UNIQUE,
+  PRIMARY KEY (`gradeID`),
+  FOREIGN KEY (`assignmentID`) references assignment(`assignmentID`),
+  FOREIGN KEY (`enrolledID`) references enrolled(`enrollmentID`)
+);
+
 

@@ -48,6 +48,7 @@ app.use(function(req,res,next){
         next();
 });
 
+
 const {viewUsers} = require('./query/viewUsers');
 const {editUser} = require('./query/editUser');
 const {deleteUser} = require('./query/deleteUser');
@@ -56,6 +57,7 @@ const {viewUser} = require('./query/viewUser');
 const {viewProfs} = require('./query/viewProfs');
 const {addCourse} = require('./query/addCourse');
 const {addGrade} = require('./query/addGrade');
+const {viewPersonalGrade} = require('./query/viewPersonalGrade');
 const {addAssn} = require('./query/addAssn');
 const {viewGrade} = require('./query/viewGrade');
 
@@ -75,8 +77,8 @@ app.get("/course/add",  viewProfs);
 
 //Grade routes
 app.get("/grade/add/:ID",  addGrade);
+app.get("/grade/personal/" ,viewPersonalGrade);
 app.get("/grade/view/:ID", viewGrade);
-
 
 //Assn routes
 app.get("/assn/add",  addAssn);

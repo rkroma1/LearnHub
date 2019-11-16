@@ -7,32 +7,39 @@
                         <th scope="col"></th>
                         <th scope="col">Name</th>
                         <th scope="col">Grade</th>
+                        <th scope="col">Assignment Name</th>
                         <th scope="col">Modification</th>
                     </tr>
                 </thead>
                 <tbody>
                     <% grades.forEach((grade, index) => { %>
                         <tr>
-                            <td>Student Name : </td>
+                            <td></td>
                             <td><%= grade.name %></td>
                             <td><%= grade.grade %></td>
-                            <td><a href="/grade/edit/<%= grade.gradeID %>" class="btn btn-sm btn-success">Edit   </a>
+			    <td><%= assignmentName[index].assignmentName %></td>
+                            <td>
+<%if(currentUser.usertype !== "user") { %>
+<a href="/grade/edit/<%= grade.gradeID %>" class="btn btn-sm btn-success">Edit   </a>
         <form action="/grade/delete/<%= grade.gradeID %>?_method=DELETE" method="post">
               <button type="submit" name="delete" class="btn btn-sm btn-danger">Delete</button>
         </form>
+<%}%>
                             </td>
                         </tr>
                     <% }) %>
                     <tr>
-			<td>Average : </td>
+			<td><strong>Average : <strong></td>
 			<td><%= avg[0].avg %></td>
-			<td></td>
-			<td></td>
+			<% if(gpa[0].gpa!==undefined){ %>
+			<td><strong>Overall GPA this semester : <strong></td>
+			<td><%= gpa[0].gpa %></td>
+			<% }%>
 			</tr>
                 </tbody>
             </table>
         <% } else { %>
-            <p class="text-center">No users found. Go <a href="/add" >here</a> to add users.</p>
+            <p class="text-center">No Grades have posted.</p>
         <% } %>
     </div>
 </div>

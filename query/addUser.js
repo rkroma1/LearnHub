@@ -1,13 +1,20 @@
 module.exports = {
     addUser: (req, res) => {
+ if(!req.user) {
+        res.redirect('/login');
+        } else {
+                if( req.user.name.usertype==="user") {
+                        res.redirect('/');
+                }
+		else{
+			
 	let query;
 	if(req.params.type === "user")
 	{	
 		query = "insert into user(name,email,password,usertype) values ('" + req.body.name + "','" + req.body.email +"','"+ req.body.password +"','"+ req.body.type +"')";
 	}
-	if(req.params.type === "grade")
-	{	console.log(req.params);	
-		query = "insert into grade(grade,enrolledID) values ('" + req.body.grade +"','"+ req.body.ID +"')";
+	if(req.params.type === "grade"){
+		query = "insert into grade(grade,enrolledID,assignmentID) values ('" + req.body.grade +"','"+ req.body.ID +"','"+ req.body.assnID +"')";
 	}
 	if(req.params.type === "assn")
 	{	
@@ -29,6 +36,10 @@ module.exports = {
             }
             res.redirect('/enroll');
         });
+		}
+        }
+
+
     },
 };
 

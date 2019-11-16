@@ -17,10 +17,12 @@
                             <td><%= user.name %></td>
                             <td><%= user.email %></td>
                             <td>
+<%if(currentUser.usertype !== "user") { %>
                                 <a href="/user/edit/<%= user.userID %>" class="btn btn-sm btn-success">Edit   </a>
 				<form action="/user/delete/<%= user.userID %>?_method=DELETE" method="post">
     					<button type="submit" name="delete" class="btn btn-sm btn-danger">Delete</button>
 				</form>
+<%}%>
                             </td>
                         </tr>
                     <% }) %>

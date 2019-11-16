@@ -5,7 +5,7 @@ module.exports = {
         db.query(query, (err, result) => {
             if (err) {
                 res.redirect("/");
-                console.log(err);
+return                console.log(err);
             }
         res.render('addCourse.ejs', {
                 title: 'Welcome to LearnHub | View Professors'

@@ -7,17 +7,17 @@
 <form action="/grade/add" method="POST">
        
 <div class="form-group">
-        <select class="form-control" name="assn">
+        <select class="form-control" name="assnID">
                  <% if( assns.length> 0) { %>
                                         <% assns.forEach((assn,index)=>{ %>
                         <option value=<%= assn.assignmentID %> > <%=assn.assignmentName %>   </option>
                         <% }) %>
                 <% } else { %>
-                        <option value="default">Assignment</option>
+                        <option disabled="true">Assignment</option>
+			<p>You need to add an Assignment first.</p>
                 <% } %>
         </select>
         </div>
-
         <div class="form-group">
 	<input type="hidden" name="ID" value=<%=ID%>>
         <input class="form-control" type="text" name="grade" placeholder="Grade">

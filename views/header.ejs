@@ -13,14 +13,29 @@
                         <div class="navbar-header">
                                 <a class="navbar-brand" href="/">LearnHub</a>
 				<div class="navbar">
+<% if(!currentUser) {} else { %>
 					<ul class="nav navbar-nav">
+					<% if(  currentUser.usertype==="admin") { %>
+                                	<li>	<a href="/course">View Courses</a> </li>
+                                	<li>	<a  href="/enroll">View Enrolled</a> </li>
+					<li>	<a  href="/user">View Users</a> </li>
+					<li>	<a  href="/course/add">Add a Course</a> </li>
+					<li>	<a  href="/assn/add">Add an Assignment</a> </li>
+					<li>	<a  href="/enroll/add">Enroll</a> </li>
+                                        <% }  %>
+
+					<% if(currentUser.usertype==="user") { %>
+					<li>	<a  href='/grade/personal/'><%= currentUser.name %> Grades</a> </li>
                                 	<li>	<a href="/course">Course</a> </li>
-                                	<li>	<a  href="/enroll">Enrolled</a> </li>
-																	<li>	<a  href="/user">Users</a> </li>
-																	<% if(currentUser) { %>
-																	<li>	<a  href="/grade/view/"><%= currentUser.name %> Grades</a> </li>
-																	<% }  %>
+					<% }  %>
+					<% if(currentUser.usertype==="prof") { %>
+                                	<li>	<a href="/course">View Courses</a> </li>
+					<li>	<a  href="/assn/add">Add an Assignment</a> </li>
+                                	<li>	<a  href="/enroll">View Enrolled</a> </li>
+					<li>	<a  href="/user">View Users</a> </li>
+					<% }  %>
 					</ul>
+			 <% }  %>
 				</div>
                         </div>
                 	<div class="collapse navbar-collapse">

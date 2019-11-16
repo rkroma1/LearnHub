@@ -58,9 +58,11 @@
                             <td><%= user.name %></td>
                             <td><%= user.email %></td>
                             <td>
+<%if(currentUser.usertype !== "user") { %>
                                 <form action="/enroll/delete/<%= user.enrollmentID %>?_method=DELETE" method="post">
                                         <button type="submit" name="delete" class="btn btn-sm btn-danger">Delete</button>
                                 </form>
+<%}%>
                             </td>
                         </tr>
                     <% }) %>
