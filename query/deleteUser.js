@@ -12,7 +12,7 @@ module.exports = {
         let query;
         if(req.params.type === "user")
         {
-         query = "delete from grade where enrolledID="+req.params.ID +";delete from enrolled where enrollmentID="+req.params.ID+";delete from user where userID="+req.params.ID;
+         query = "delete from user where userID="+req.params.ID;
         }
         if(req.params.type === "course")
         {

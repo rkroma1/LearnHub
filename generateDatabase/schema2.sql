@@ -15,7 +15,7 @@ CREATE TABLE `course` (
   `instructorID` int,
   `assignmentID` int,
   PRIMARY KEY (`courseID`),
-  FOREIGN KEY(`instructorID`) references user(`userID`)
+  FOREIGN KEY(`instructorID`) references user(`userID`) on delete cascade
 );
 
 
@@ -23,7 +23,7 @@ CREATE TABLE `enrolled` (
 	`enrollmentID` int PRIMARY KEY AUTO_INCREMENT,
 	`userID` int,
 	`courseID` int,
-	FOREIGN KEY (`userID`) references user(`userID`),
+	FOREIGN KEY (`userID`) references user(`userID`) on delete cascade,
 	FOREIGN KEY(`courseID`) references course(`courseID`),
 	CONSTRAINT user_info UNIQUE(userID,courseID)
 );
