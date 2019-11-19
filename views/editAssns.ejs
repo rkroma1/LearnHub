@@ -1,0 +1,17 @@
+<% include header.ejs %>
+
+<div class="container">
+<div class="row">
+<h1 style="text-align:center;">Edit Record</h1>
+<div style="width:30%; margin: auto;">
+
+<form action="/assn/edit/<%=ID %>?_method=PUT" method="POST">
+        <div class="form-group">
+        <input class="form-control" type="text" name="assnName" placeholder="Assignment Name" value="<%=users[0].assignmentName %>">
+        </div>
+        <button class="btn btn-block btn-lg btn-primary">Submit.</button>
+</form>
+        <a href='/'>Go Back</a>
+</div>
+</div>
+</div>
