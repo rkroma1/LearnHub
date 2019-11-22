@@ -24,7 +24,7 @@ CREATE TABLE `enrolled` (
 	`userID` int,
 	`courseID` int,
 	FOREIGN KEY (`userID`) references user(`userID`) on delete cascade,
-	FOREIGN KEY(`courseID`) references course(`courseID`),
+	FOREIGN KEY(`courseID`) references course(`courseID`) on delete cascade,
 	CONSTRAINT user_info UNIQUE(userID,courseID)
 );
 
@@ -33,7 +33,7 @@ CREATE TABLE `assignment` (
   `courseID` int,
   `assignmentID` int AUTO_INCREMENT,
   PRIMARY KEY (`assignmentID`),
-  FOREIGN KEY (`courseID`) references course(`courseID`)
+  FOREIGN KEY (`courseID`) references course(`courseID`) on delete cascade
 );
 
 
@@ -43,8 +43,8 @@ CREATE TABLE `grade` (
   `enrolledID` int,
   `assignmentID` int UNIQUE,
   PRIMARY KEY (`gradeID`),
-  FOREIGN KEY (`assignmentID`) references assignment(`assignmentID`),
-  FOREIGN KEY (`enrolledID`) references enrolled(`enrollmentID`)
+  FOREIGN KEY (`assignmentID`) references assignment(`assignmentID`) on delete cascade,
+  FOREIGN KEY (`enrolledID`) references enrolled(`enrollmentID`) on delete cascade
 );
 
 
