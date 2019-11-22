@@ -14,12 +14,12 @@ passport.use('local', new LocalStrategy({
         usernameField : 'email',
         passwordField : 'password',
         passReqToCallback : true, // allows us to pass back the entire request to the callback
-	userProperty: 'currentUser',
+	userProperty: 'currentUser'
     },
     function(req, email, password, done) { 
 	let query;
-	query="SELECT *  FROM user WHERE email = '" + email + "'";
-         db.query(query,function(err,result){
+        query="SELECT * FROM user WHERE email = '" + email + "'"; 
+	db.query(query,function(err,result){
                         if (err){
 				console.log("Failed\n\n");
                 		return done(err);
