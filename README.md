@@ -1,5 +1,5 @@
 # LearnHub
-Open source LMS (Leaning Managment System) 
+Open source LMS (Learning Management System) 
 **************************************************
                                        
 *  *                                             **
