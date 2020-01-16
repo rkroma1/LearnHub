@@ -17,6 +17,6 @@ Open source LMS (Learning Management System)
   "version": "1.0.0",
   "description": "Learning Management System",
   "main": "app.js",
-  "author": "Brandon Cole, Lysian Mve, Mike Lee, Adelia Manuel, Rami Kroma",
+  "author": "Lysian Mve, Mike Lee, Adelia Manuel, Rami Kroma",
   "license": "ISC",
 }
